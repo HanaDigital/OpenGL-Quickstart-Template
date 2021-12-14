@@ -1,0 +1,5 @@
+﻿  Building Custom Rule A:/Downloads/glfw-3.3.6/tests/CMakeLists.txt
+  cursor.c
+  glad_gl.c
+  Generating Code...
+  cursor.vcxproj -> A:\Desktop\Github Repos\OpenGL-GLFW-GLAD-Template\glfw-3.3.6\build\tests\Debug\cursor.exe

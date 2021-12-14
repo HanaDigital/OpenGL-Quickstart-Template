@@ -1,0 +1,6 @@
+﻿  Building Custom Rule A:/Downloads/glfw-3.3.6/tests/CMakeLists.txt
+  monitors.c
+  getopt.c
+  glad_gl.c
+  Generating Code...
+  monitors.vcxproj -> A:\Desktop\Github Repos\OpenGL-GLFW-GLAD-Template\glfw-3.3.6\build\tests\Debug\monitors.exe

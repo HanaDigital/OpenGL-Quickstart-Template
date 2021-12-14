@@ -1,0 +1,5 @@
+﻿  Building Custom Rule A:/Downloads/glfw-3.3.6/examples/CMakeLists.txt
+  heightmap.c
+  glad_gl.c
+  Generating Code...
+  heightmap.vcxproj -> A:\Desktop\Github Repos\OpenGL-GLFW-GLAD-Template\glfw-3.3.6\build\examples\Debug\heightmap.exe
