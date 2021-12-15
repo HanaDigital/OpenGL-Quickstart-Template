@@ -23,22 +23,22 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="Local Dependencies\lib\glfw3.lib" />
+    <Library Include="Dependencies\lib\glfw3.lib" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Local Dependencies\lib\glfw3.pdb" />
+    <None Include="Dependencies\lib\glfw3.pdb" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Local Dependencies\include\glad\glad.h">
+    <ClInclude Include="Dependencies\include\glad\glad.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Local Dependencies\include\GLFW\glfw3.h">
+    <ClInclude Include="Dependencies\include\GLFW\glfw3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Local Dependencies\include\GLFW\glfw3native.h">
+    <ClInclude Include="Dependencies\include\GLFW\glfw3native.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Local Dependencies\include\KHR\khrplatform.h">
+    <ClInclude Include="Dependencies\include\KHR\khrplatform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

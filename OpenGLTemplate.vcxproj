@@ -72,16 +72,16 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>Local Dependencies\include;$(IncludePath)</IncludePath>
-    <LibraryPath>Local Dependencie\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>Dependencies\include;$(IncludePath)</IncludePath>
+    <LibraryPath>Dependencies\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>Local Dependencies\include;$(IncludePath)</IncludePath>
-    <LibraryPath>Local Dependencie\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>Dependencies\include;$(IncludePath)</IncludePath>
+    <LibraryPath>Dependencies\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -149,16 +149,16 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="Local Dependencies\lib\glfw3.lib" />
+    <Library Include="Dependencies\lib\glfw3.lib" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Local Dependencies\lib\glfw3.pdb" />
+    <None Include="Dependencies\lib\glfw3.pdb" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Local Dependencies\include\glad\glad.h" />
-    <ClInclude Include="Local Dependencies\include\GLFW\glfw3.h" />
-    <ClInclude Include="Local Dependencies\include\GLFW\glfw3native.h" />
-    <ClInclude Include="Local Dependencies\include\KHR\khrplatform.h" />
+    <ClInclude Include="Dependencies\include\glad\glad.h" />
+    <ClInclude Include="Dependencies\include\GLFW\glfw3.h" />
+    <ClInclude Include="Dependencies\include\GLFW\glfw3native.h" />
+    <ClInclude Include="Dependencies\include\KHR\khrplatform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
