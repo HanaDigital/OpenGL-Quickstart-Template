@@ -1,7 +1,7 @@
 #pragma once
 #include "core.h"
 
-namespace OGLInput {
+namespace EInput {
 	extern bool keyPressedData[GLFW_KEY_LAST];
 	extern bool mouseButtonPressedData[GLFW_MOUSE_BUTTON_LAST];
 	extern float mouseX;

@@ -1,7 +1,7 @@
 #pragma once
 #include "core.h"
 
-namespace OGLShader {
+namespace EShader {
 	struct Vertex {
 		glm::vec3 position;
 		glm::vec4 color;

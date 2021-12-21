@@ -1,7 +1,7 @@
 #pragma once
 #include "core.h"
 
-namespace OGLWindow {
+namespace EWindow {
 	extern GLFWwindow* nativeWindow;
 	extern int windowWidth;
 	extern int windowHeight;
