@@ -1,13 +1,15 @@
 #pragma once
 #include "core.h"
 
-namespace EWindow {
-	extern GLFWwindow* nativeWindow;
-	extern int windowWidth;
-	extern int windowHeight;
+namespace Engine {
+	namespace Window {
+		extern GLFWwindow* nativeWindow;
+		extern int windowWidth;
+		extern int windowHeight;
 
-	bool createWindow(int width, int height, const char* title, bool fullScreenMode);
-	void addWindowCallbacks();
-	void windowResizeCallback(GLFWwindow* window, int width, int height);
-	void close();
+		bool createWindow(int width, int height, const char* title, bool fullScreenMode);
+		void addWindowCallbacks();
+		void windowResizeCallback(GLFWwindow* window, int width, int height);
+		void close();
+	}
 }
