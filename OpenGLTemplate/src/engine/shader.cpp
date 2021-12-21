@@ -3,45 +3,34 @@
 
 namespace Engine {
 	namespace Shader {
-		unsigned int createVAO() {
+		GLuint createVAO() {
 			unsigned int vaoID;
-			glGenVertexArrays(1, &vaoID);
+			glCreateVertexArrays(1, &vaoID);
 			glBindVertexArray(vaoID);
-
 			return vaoID;
 		}
 
-		void createVBO(Vertex* vertices, int verticesByteSize, int vertexLen, int usage)
-		{
-			unsigned int vboID;
-			glGenBuffers(1, &vboID);									  // Generate Vertex Buffer Object
-			glBindBuffer(GL_ARRAY_BUFFER, vboID);						  // Bind the Array Buffer to use the VBO
-			glBufferData(GL_ARRAY_BUFFER, verticesByteSize, vertices, usage);	  // Bind vertices to the VBO
+		void createVBO(GLuint vaoID, GLsizeiptr verticesByteSize, const void* vertices, GLuint bindingIndex, int vertexLen, GLenum usage) {
+			GLuint vboID;
+			glCreateBuffers(1, &vboID);
+			glNamedBufferData(vboID, verticesByteSize, vertices, usage);
+			glVertexArrayVertexBuffer(vaoID, bindingIndex, vboID, 0, vertexLen * sizeof(float));
 		}
 
-		void addVertexAttrib(int location, int attribLen, int vertexLen, void* offset)
-		{
-			glVertexAttribPointer(
-				location,
-				attribLen,
-				GL_FLOAT,
-				GL_FALSE,
-				vertexLen * sizeof(float),
-				offset
-			);
-			glEnableVertexAttribArray(location);
+		void addVertexAttrib(GLuint vaoID, GLuint location, GLuint attribLen, GLuint offset, GLuint bindingIndex) {
+			glVertexArrayAttribFormat(vaoID, location, attribLen, GL_FLOAT, GL_FALSE, offset);
+			glVertexArrayAttribBinding(vaoID, location, bindingIndex);
+			glEnableVertexArrayAttrib(vaoID, location);
 		}
 
-		void createEBO(unsigned int* indices, int IndicesByteSize, int usage)
-		{
-			unsigned int eboID;
-			glGenBuffers(1, &eboID);							// Generate Element Buffer Object
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, eboID);		// Bind the EBO
-			// Set the EBO data to be indices
-			glBufferData(GL_ELEMENT_ARRAY_BUFFER, IndicesByteSize, indices, usage);
+		void createEBO(GLuint vaoID, GLsizeiptr indicesByteSize, GLuint* indices, GLenum usage) {
+			GLuint eboID;
+			glCreateBuffers(1, &eboID);
+			glNamedBufferData(eboID, indicesByteSize, indices, usage);
+			glVertexArrayElementBuffer(vaoID, eboID);
 		}
 
-		void useVAO(int vaoID) {
+		void useVAO(GLuint vaoID) {
 			glBindVertexArray(vaoID);
 		}
 

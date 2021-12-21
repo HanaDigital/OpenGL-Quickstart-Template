@@ -8,11 +8,11 @@ namespace Engine {
 			glm::vec4 color;
 		};
 
-		unsigned int createVAO();
-		void createVBO(Vertex* vertices, int byteSize, int vertexLen, int usage);
-		void addVertexAttrib(int location, int attribLen, int vertexLen, void* offset);
-		void createEBO(unsigned int* indices, int byteSize, int usage);
-		void useVAO(int vaoID);
+		GLuint createVAO();
+		void createVBO(GLuint vaoID, GLsizeiptr verticesByteSize, const void* vertices, GLuint bindingIndex, int vertexLen, GLenum usage);
+		void addVertexAttrib(GLuint vaoID, GLuint location, GLuint attribLen, GLuint offset, GLuint bindingIndex);
+		void createEBO(GLuint vaoID, GLsizeiptr indicesByteSize, GLuint* indices, GLenum usage);
+		void useVAO(GLuint vaoID);
 		void unbindVAO();
 
 		class Shader {

@@ -19,7 +19,9 @@ int main() {
 	// Initialize shader
 	// Remember to delete shaders created this way at the end
 	Shader::Shader* shader = NULL;
-	try { shader = new Shader::Shader("assets/shaders/vertexShader.glsl", "assets/shaders/fragmentShader.glsl"); }
+	try {
+		shader = new Shader::Shader("assets/shaders/vertexShader.glsl", "assets/shaders/fragmentShader.glsl");
+	}
 	catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 		terminateGLFW();
@@ -36,26 +38,27 @@ int main() {
 		{ glm::vec3(-0.5f, -0.5f, 0.0f),	glm::vec4(0.8f, 0.9f, 0.2f, 1.0f) },	// 3 Bottom Left
 	};
 	// Automaticall calculate required data
-	const int vertexLen = sizeof(Shader::Vertex) / sizeof(float);
-	int vertexByteSize = sizeof(vertices);
-	const int vertexCount = vertexByteSize / vertexLen / sizeof(float);
+	GLuint vertexLen = sizeof(Shader::Vertex) / sizeof(float);
+	GLsizeiptr verticesByteSize = sizeof(vertices);
+	GLuint vertexCount = (GLuint)(verticesByteSize / vertexLen / sizeof(float));
 	// Set usage type GL_STATIC_DRAW, GL_DYNAMIC_DRAW, etc.
-	int usage = GL_STATIC_DRAW;
+	GLenum usage = GL_STATIC_DRAW;
 
 	// Create the indices
-	unsigned int indices[] = {
+	GLuint indices[] = {
 		0, 1, 2,
 		2, 3, 0
 	};
-	int indicesByteSize = sizeof(indices);
-	const int indicesLen = indicesByteSize / sizeof(unsigned int);
+	GLuint indicesByteSize = sizeof(indices);
+	GLuint indicesLen = (GLuint)(indicesByteSize / sizeof(GLuint));
 
-	// Create VBO
-	unsigned int vaoID = Shader::createVAO();
-	Shader::createVBO(vertices, vertexByteSize, vertexLen, usage);
-	Shader::createEBO(indices, indicesByteSize, usage);
-	Shader::addVertexAttrib(0, 3, vertexLen, (void*)offsetof(Shader::Vertex, position));	// Position
-	Shader::addVertexAttrib(1, 4, vertexLen, (void*)offsetof(Shader::Vertex, color));		// Color
+	// Create VAO, VBO, EBO & set attributes
+	GLuint vaoID = Shader::createVAO();
+	GLuint bindingIndex = 0;
+	Shader::createVBO(vaoID, verticesByteSize, vertices, bindingIndex, vertexLen, usage);
+	Shader::createEBO(vaoID, indicesByteSize, indices, usage);
+	Shader::addVertexAttrib(vaoID, 0, 3, offsetof(Shader::Vertex, position), bindingIndex);		// Position
+	Shader::addVertexAttrib(vaoID, 1, 4, offsetof(Shader::Vertex, color), bindingIndex);		// Color
 
 	// Set clear color
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
